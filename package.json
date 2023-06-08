@@ -11,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "lint": "eslint --cache --fix",
+    "typecheck": "tsc -b --verbose",
     "prepare": "husky install"
   },
   "author": "",
