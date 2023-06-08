@@ -1,1 +1,33 @@
+name: WebpackReact
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+on:
+  push:
+    branches-ignore:    
+      - main
+      - develop
+  pull_request:
+    types:
+      - opened
 
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: eslint
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: yarn
+      - run: yarn lint
+
+  typecheck:
+    runs-on: ubuntu-latest  # 指定操作系统
+    name: typecheck
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: yarn
+      - run: yarn typecheck
