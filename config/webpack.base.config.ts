@@ -1,7 +1,22 @@
 import path from 'path'
 
+import * as dotenv from 'dotenv'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { Configuration } from 'webpack'
+import { Configuration, DefinePlugin } from 'webpack'
+
+import { pathToRoot } from '../utils'
+
+const isProd = () => process.env.NODE_ENV === 'prod'
+const isUat = () => process.env.NODE_ENV === 'uat'
+
+let envFile = '.dev'
+if (isProd()) {
+  envFile = '.prod'
+} else if (isUat()) {
+  envFile = '.uat'
+}
+
+dotenv.config({ path: pathToRoot('env', envFile) })
 
 const config: Configuration = {
   output: {
@@ -26,6 +41,11 @@ const config: Configuration = {
     ],
   },
   plugins: [
+    new DefinePlugin({
+      API_HOST: JSON.stringify(process.env.API_HOST ?? 'http://127.0.0.1'),
+      BASE_URL: JSON.stringify(process.env.BASE_URL),
+      ROUTER_BASE: JSON.stringify(process.env.ROUTER_BASE ?? '/'),
+    }),
     new HtmlWebpackPlugin({
       template: 'index.html',
       favicon: 'favicon.ico',

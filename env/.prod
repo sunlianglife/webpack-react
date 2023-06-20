@@ -1,0 +1,3 @@
+API_HOST="https://api-host-prod.com.cn"
+BASE_URL="https://base-prod.com.cn"
+ROUTER_BASE="/prod"

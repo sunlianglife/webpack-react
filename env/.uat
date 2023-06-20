@@ -1,0 +1,3 @@
+API_HOST="https://api-host-uat.com.cn"
+BASE_URL="https://base-uat.com.cn"
+ROUTER_BASE="/uat"

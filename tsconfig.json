@@ -16,7 +16,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "rootDir": "src",
+    // "rootDir": "src",  // typescirpt项目的默认的根目录为tsconfig.json文件所在的目录，所有的相对路径都是相对于这个根目录的。我们可以通过rootDir选项
     "baseUrl": ".",
     "paths": {
       "@src/*": [

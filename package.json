@@ -9,7 +9,9 @@
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.config.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build:prod": "cross-env NODE_ENV=prod webpack --config config/webpack.prod.config.ts",
+    "build:dev": "cross-env NODE_ENV=dev webpack --config config/webpack.prod.config.ts",
+    "build:uat": "cross-env NODE_ENV=uat webpack --config config/webpack.prod.config.ts",
     "lint": "eslint --cache --fix",
     "typecheck": "tsc -b --verbose",
     "prepare": "husky install"
@@ -39,8 +41,11 @@
     "@typescript-eslint/parser": "^5.59.9",
     "babel-loader": "^9.1.2",
     "babel-plugin-import": "^1.13.6",
+    "clean-webpack-plugin": "^4.0.0",
     "commitlint": "^17.6.5",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-alias": "^1.1.2",

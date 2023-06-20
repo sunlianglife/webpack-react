@@ -4,7 +4,7 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        <h1>Hello Webpack-Rea ctwww2233</h1>
+        <h1>Hello Webpack-Reactaaa{API_HOST}</h1>
       </div>
     </Router>
   )
